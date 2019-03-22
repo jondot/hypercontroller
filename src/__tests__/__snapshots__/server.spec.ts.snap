@@ -1,0 +1,116 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`server should mount controllers and actions: mounted actions 1`] = `
+Array [
+  Object {
+    "app": Object {
+      "app": true,
+    },
+    "cb": [Function],
+    "middleware": Array [],
+    "parentPath": "/testing",
+    "path": "/",
+    "router": Object {
+      "router": true,
+    },
+    "verb": "get",
+  },
+  Object {
+    "app": Object {
+      "app": true,
+    },
+    "cb": [Function],
+    "middleware": Array [],
+    "parentPath": "/testing",
+    "path": "/foobar",
+    "router": Object {
+      "router": true,
+    },
+    "verb": "post",
+  },
+  Object {
+    "app": Object {
+      "app": true,
+    },
+    "cb": [Function],
+    "middleware": Array [],
+    "parentPath": "/testing",
+    "path": "/",
+    "router": Object {
+      "router": true,
+    },
+    "verb": "delete",
+  },
+  Object {
+    "app": Object {
+      "app": true,
+    },
+    "cb": [Function],
+    "middleware": Array [
+      [Function],
+    ],
+    "parentPath": "/testing",
+    "path": "/with-middleware",
+    "router": Object {
+      "router": true,
+    },
+    "verb": "get",
+  },
+]
+`;
+
+exports[`server should mount controllers and actions: mounted controllers 1`] = `
+Array [
+  Object {
+    "app": Object {
+      "app": true,
+    },
+    "middleware": Array [
+      [Function],
+    ],
+    "path": "/testing",
+    "router": Object {
+      "router": true,
+    },
+  },
+]
+`;
+
+exports[`server should mount controllers and actions: mountpoints 1`] = `
+Array [
+  Object {
+    "actions": Array [
+      Object {
+        "middleware": Array [],
+        "parent": "/testing",
+        "path": "/",
+        "verb": "get",
+      },
+      Object {
+        "middleware": Array [],
+        "parent": "/testing",
+        "path": "/foobar",
+        "verb": "post",
+      },
+      Object {
+        "middleware": Array [],
+        "parent": "/testing",
+        "path": "/",
+        "verb": "delete",
+      },
+      Object {
+        "middleware": Array [
+          "someMiddleware",
+        ],
+        "parent": "/testing",
+        "path": "/with-middleware",
+        "verb": "get",
+      },
+    ],
+    "middleware": Array [
+      "someMiddleware",
+    ],
+    "path": "/testing",
+  },
+]
+`;

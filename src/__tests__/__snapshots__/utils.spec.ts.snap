@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`utils should convert to HTTP paths: controller 1`] = `"foo"`;
+
+exports[`utils should convert to HTTP paths: index 1`] = `""`;
+
+exports[`utils should convert to HTTP paths: kebab 1`] = `"foo-bar"`;
+
+exports[`utils should convert to HTTP paths: non-index 1`] = `"index-foobar"`;
+
+exports[`utils should convert to HTTP paths: normal 1`] = `"hello"`;
