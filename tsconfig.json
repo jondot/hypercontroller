@@ -6,6 +6,7 @@
     ],
     "experimentalDecorators": true,
     "module": "commonjs",
+    "declaration": true,
     "noUnusedLocals": true,
     "emitDecoratorMetadata": true,
     "target": "es5",

@@ -1,5 +1,12 @@
-import { Server, ServerAdapter } from '../server'
-import { get, Post, Controller, GetWithRoute, Delete } from '../decorators'
+import {
+  Server,
+  ServerAdapter,
+  get,
+  Post,
+  Controller,
+  GetWithRoute,
+  Delete
+} from '../index'
 
 function someMiddleware(_req: any, _res: any, _next: any) {}
 
