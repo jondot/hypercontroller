@@ -2,7 +2,7 @@ language: node_js
 cache: yarn
 node_js:
   - "8"
-  - "9"
+  - "10"
 
 script: yarn test
 
@@ -17,7 +17,7 @@ jobs:
           email: "jondotan@gmail.com"
           skip_cleanup: true
           api_key:
-            secure: fGqPo4don8YwuxgM/QR68RvnSD38prYHqjWyXfdYTFi5xcVvUllIO/REtbQb0X1scbCP4WlvDVYQ7iCH/eh7uXM40RO0B+KSrHOUgngKtLKF104IRLZ48U4qkrJqB+VBxXHpqe2dlQyyOU4Z0RdcSI838EN7WSP802tWC4R/Vsg3B+E/gILnzjGX4dGFdHIqTOpMpcgchQRcfXIkHpFfQWF2Ww6NFwQ5aZzhmXPOxAt9AaaIwrNoNcndh+AqshDVgZzy2+S4NtPLEaEz7YdqqogkFoG1ma+oj4ZM/MhfESYowZYLqo7iqtGFN6RGxoivTUBWwakMz9/2ELrstKD7rtT3U7Et5HSt05sRnHXgNPTSYylnZJXbgprgT/gP9rhdQAMVZS2x6fX/WG4+ifIUG78ZWLLFfMMDn6OhRzbiJsHNMrXkxgg0vuMMU6gMriNHwNsA5Tva2wvuklrqr0nBA3+7YchczQspS+akKHIDI3fXxgBTJNXlqRuz1lWfN26hNxVOzBdmxPIsfwnYC703pc46iPPrpWp5wREjKJfxy85BSvCPO8K1/T7O4CnpIlgcVIGBtVopnhoKXQNVEbiEyiU3I2vyTthgK2ieJtacsu6EeQ2zCgAC73n/9W+nexu9zXvBK7lZSIHgoDByHCKuqBY0LIwrsLg7WRA46wn/VIk=
+            secure: "ocZDzuf/1AzLGH8Z2TPpHBECMsHgG90NIywas/JxCiESCYq2f4xQFxUAXCvDM4r1hRYLUIZLX1KLnRXOi3Q/r/NCydGViNvfhaAb/3qkzGpHy5hPivXOC+c4jtZd0dAEgYOT3ymamyAj5gsvzJYEkgY/b+OHUU8Ui+nQ3xILQtStdTmJHczE89Kg1+bcv/KfeqhC/USEYOoNij2xDBKuOTbTBLBaMp9MuhH3lfHn07JU022EfH5qOPxKBR/VtMP0vBIhOnK9WJjDObyqUePxFJEzSB39mBWxX5pvPE/iYdiCKUqEvi4DEIc4yVQjC8k23VUBVWotP21CEQL0e9UENWTRXWNvpvJC6r0jPpcAUskyhy5xPPjGelGHnCDYNKm3unKBgb8ja7dWPCqUbQZPciZWBxUeD2yrq37Mn0EdcrX6OShkcP4XLTRmy24Asl8dh0bGKzSJ0IlMMFTHot8BiWmUKvL+aR1WQrCPigPTHYLjW22gwbHe3zNepYgVsA7SQ5EMVmvEl30oy+tj4YMAkbm8WOOXYCbWQjqHr+b27IhNmzsIdhDNORu5gx6lFhhrKJoe3Mg2oy923/cLz3bjqQI++8oE48aVsnQT1RTrT0KEQ6lCdwqZ2w2KbnZtjUs3zhFJ2IaChPAw6CfGdlYviosop0vcGyb5dAJWZCOouU4="
           on:
             tags: true
 #    - stage: docs
