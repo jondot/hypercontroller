@@ -2,12 +2,13 @@
 
 # Hypercontroller
 
-✅ Structured and declarative project layout with controllers, actions, and middleware
-✅ Bring your own framework: use with [Fastify](https://fastify.io) or [Express](https://github.com/expressjs/express)
-✅ Automatic routing and mounting
-✅ Helpers and best-practices for strong params and async promise-based flows
-✅ TypeScript-first
-✅ Generators driven (quickly add controllers, actions)
+✅ Structured and declarative project layout with controllers, actions, and middleware  
+✅ Bring your own framework: use with [Fastify](https://fastify.io) or [Express](https://github.com/expressjs/express)  
+✅ Automatic routing and mounting  
+✅ Helpers and best-practices for strong params and async promise-based flows  
+✅ TypeScript-first  
+✅ Generators driven (quickly add controllers, actions)  
+
 
 ```ts
 import { Controller, get, postWithRoute, permitParams } from 'hypercontroller'
