@@ -8,18 +8,18 @@
     "start": "ts-node src/index.ts"
   },
   "dependencies": {
-    "@types/express": "^4.16.1",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
-    "hypercontroller": "^1.0.9",
+    "hypercontroller": "^1.0.10",
     "lodash": "^4.17.11"
   },
   "devDependencies": {
-    "@types/jest": "^23.3.2",
-    "@types/lodash": "^4.14.116",
-    "@types/node": "^10.11.2",
-    "jest": "^23.6.0",
-    "ts-jest": "^23.10.2",
+    "@types/express": "^4.16.1",
+    "@types/jest": "^24.0.11",
+    "@types/lodash": "^4.14.123",
+    "@types/node": "^11.11.7",
+    "jest": "^24.5.0",
+    "ts-jest": "^24.0.0",
     "ts-node": "^8.0.3",
     "typescript": "^3.3.4000",
     "zeroconf-typescript-eslint": "^1.0.2"

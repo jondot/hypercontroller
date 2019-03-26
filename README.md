@@ -1,3 +1,5 @@
+![](media/cover.png)
+
 # Hypercontroller
 
 ## Quick Start

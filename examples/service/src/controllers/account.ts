@@ -5,7 +5,7 @@ const database = () =>
     setTimeout(() => resolve({ saved: true }), 1000)
   })
 
-// const accountParams = requireParams('account', ['name'])
+// const accountParams = permitParams('account', ['name'])
 @Controller()
 class AccountController {
   @get()
@@ -14,7 +14,7 @@ class AccountController {
   }
 
   @postWithRoute('/')
-  async update(req, res) {
+  async update(_req, res) {
     // const params = accountParams(req.body)
     const record = await database()
     res.json(record)

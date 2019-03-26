@@ -1,19 +1,16 @@
+---
+to: server.ts
+---
 import express from 'express'
 import { Server, printMountpoints, ExpressAdapter } from 'hypercontroller'
-import bodyParser from 'body-parser'
-import HomeController from './controllers/home'
-import AccountController from './controllers/account'
-import RestController from './controllers/rest'
 
 const server = new Server(new ExpressAdapter(express))
-server.app.use(bodyParser.json())
 const mountpoints = server.mount([
-  new HomeController(),
-  new RestController(),
-  new AccountController()
+    // controllers
 ])
 printMountpoints(mountpoints)
 const port = process.env.PORT || 5160
 server.app.listen(port, () => {
   console.log(`listening on ${port}`)
 })
+

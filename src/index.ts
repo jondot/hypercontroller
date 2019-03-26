@@ -5,7 +5,7 @@ import { printMountpoints } from './mounting'
 
 type ExtractorFn = (rec: Record<string, any>) => Record<string, any>
 
-const requireParams = (
+const permitParams = (
   root: string,
   paths: [string | Record<string, any>]
 ): ExtractorFn => extract(root, paths)
@@ -13,4 +13,4 @@ const requireParams = (
 export * from './decorators'
 export * from './server'
 
-export { FastifyAdapter, ExpressAdapter, printMountpoints, requireParams }
+export { FastifyAdapter, ExpressAdapter, printMountpoints, permitParams }
