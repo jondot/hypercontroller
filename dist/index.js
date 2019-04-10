@@ -13,8 +13,8 @@ var express_1 = __importDefault(require("./adapters/express"));
 exports.ExpressAdapter = express_1.default;
 var mounting_1 = require("./mounting");
 exports.printMountpoints = mounting_1.printMountpoints;
-var requireParams = function (root, paths) { return hyperparams_1.extract(root, paths); };
-exports.requireParams = requireParams;
+var permitParams = function (root, paths) { return hyperparams_1.extract(root, paths); };
+exports.permitParams = permitParams;
 __export(require("./decorators"));
 __export(require("./server"));
 //# sourceMappingURL=index.js.map

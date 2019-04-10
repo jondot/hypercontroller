@@ -12,7 +12,9 @@ export interface ActionController {
 }
 export declare class Server {
     readonly app: any;
+    connection: any;
     readonly adapter: ServerAdapter;
     constructor(adapter: ServerAdapter, opts?: {});
     mount(controllerOrControllers: any): ControllerMountpoint[];
+    start(createConnection?: () => Promise<void>, opts?: any): Promise<any>;
 }
