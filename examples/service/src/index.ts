@@ -1,6 +1,6 @@
 import express from 'express'
-import { Server, printMountpoints, ExpressAdapter } from 'hypercontroller'
 import bodyParser from 'body-parser'
+import { Server, printMountpoints, ExpressAdapter } from '../../../src'
 import HomeController from './controllers/home'
 import AccountController from './controllers/account'
 import RestController from './controllers/rest'
@@ -13,7 +13,6 @@ const mountpoints = server.mount([
   new AccountController()
 ])
 printMountpoints(mountpoints)
-const port = process.env.PORT || 5160
-server.app.listen(port, () => {
-  console.log(`listening on ${port}`)
-})
+server
+  .start()
+  .then(({ opts: { port } }) => console.log(`listening on ${port}!`))

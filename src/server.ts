@@ -30,6 +30,8 @@ export interface ActionController {
 export class Server {
   public readonly app: any
 
+  public connection: any
+
   public readonly adapter: ServerAdapter
 
   public constructor(adapter: ServerAdapter, opts = {}) {
@@ -42,5 +44,29 @@ export class Server {
       | ActionController
       | ActionController[])
     return mountControllers(this.app, controllers, this.adapter)
+  }
+
+  public start(
+    createConnection = () => Promise.resolve(),
+    opts: any = {}
+  ): Promise<any> {
+    const resolvedOpts = {
+      ...{ env: process.env.NODE_ENV, port: process.env.PORT || 3000 },
+      ...opts
+    }
+    return new Promise((resolve, reject) => {
+      createConnection()
+        .then(async connection => {
+          this.connection = connection
+          if (resolvedOpts.env !== 'test') {
+            this.app.listen(resolvedOpts.port, () => {
+              resolve({ opts: resolvedOpts })
+            })
+          } else {
+            resolve({ opts: resolvedOpts })
+          }
+        })
+        .catch(err => reject(err))
+    })
   }
 }
