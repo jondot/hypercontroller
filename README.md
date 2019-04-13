@@ -53,9 +53,12 @@ const mountpoints = server.mount([
 printMountpoints(mountpoints)
 
 const port = process.env.PORT || 5160
-server.app.listen(port, () => {
-  console.log(`listening on ${port}`)
-})
+const createServer = () =>
+  server
+    .start()
+    .then(({ opts }) => console.log(`Listening on ${opts.port}`))
+    .then(() => server)
+createServer()
 ```
 
 And run (here using `ts-node`):
