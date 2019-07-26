@@ -1,4 +1,4 @@
-import { Controller, get, GetWithRoute } from 'hypercontroller'
+import { Controller, get, GetWithRoute } from '../../../../src'
 
 @Controller()
 class IndexController {

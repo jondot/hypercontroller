@@ -1,4 +1,4 @@
-import { Controller, get, postWithRoute } from 'hypercontroller'
+import { Controller, get, postWithRoute } from '../../../../src'
 
 const database = () =>
   new Promise((resolve, _reject) => {

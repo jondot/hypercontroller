@@ -1,4 +1,4 @@
-import { castArray, keysIn, compact } from 'lodash'
+import { castArray, compact } from 'lodash'
 import { ActionController, ServerAdapter } from './server'
 
 export interface Route {
@@ -19,6 +19,24 @@ export interface ControllerMountpoint {
   actions: ActionMountpoint[]
 }
 
+function methods(obj: any): string[] {
+  const ret: string[] = []
+  if (obj) {
+    const ps = Object.getOwnPropertyNames(obj)
+
+    ps.forEach(p => {
+      if (obj[p] instanceof Function) {
+        ret.push(p)
+      } else {
+        // can add properties if needed
+      }
+    })
+
+    return [...ret, ...methods(Object.getPrototypeOf(obj))]
+  }
+  return ret
+}
+
 export function printMountpoints(mps: ControllerMountpoint[]) {
   const printMiddleware = (middleware: string[]) =>
     middleware && middleware.length > 0 ? `[${middleware}]` : ''
@@ -26,7 +44,7 @@ export function printMountpoints(mps: ControllerMountpoint[]) {
     console.log(`${cmp.path}\t${printMiddleware(cmp.middleware)}`)
     cmp.actions.forEach(amp => {
       console.log(
-        `\t${amp.verb.toUpperCase()} ${cmp.path}${amp.path}\t${printMiddleware(
+        `\t${amp.verb.toUpperCase()} ${cmp.path !== '/' ? cmp.path : ''}${amp.path}\t${printMiddleware(
           amp.middleware
         )}`
       )
@@ -43,7 +61,7 @@ export const mountActions = (
 ): ControllerMountpoint => {
   // mount all actions within a controller
   const actionMountpoints = compact(
-    keysIn(controller).map(member => {
+    methods(controller).map(member => {
       const route = controller[member] as Route
 
       // remember we tucked props in each route with the decorator

@@ -5,7 +5,7 @@ import {
   postWithRoute,
   putWithRoute,
   deleteWithRoute
-} from 'hypercontroller'
+} from '../../../../src'
 
 @Controller()
 class RestController {

@@ -9,7 +9,7 @@
     "declaration": true,
     "noUnusedLocals": true,
     "emitDecoratorMetadata": true,
-    "target": "es5",
+    "target": "es6",
     "moduleResolution": "node",
     "sourceMap": true,
     "outDir": "dist",

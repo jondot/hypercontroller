@@ -20,8 +20,8 @@
     "@types/node": "^11.11.7",
     "jest": "^24.5.0",
     "ts-jest": "^24.0.0",
-    "ts-node": "^8.0.3",
-    "typescript": "^3.3.4000",
+    "ts-node": "^8.3.0",
+    "typescript": "^3.5.3",
     "zeroconf-typescript-eslint": "^1.0.2"
   },
   "jest": {
