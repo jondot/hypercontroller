@@ -36,8 +36,8 @@ class TestingController {
     res.json({ custom: true })
   }
 
-  _routes(draw: any) {
-    draw('/').get('custom', this.custom)
+  _routes({ router }: { router: any }) {
+    router.get('custom', this.custom)
   }
 }
 
@@ -80,7 +80,7 @@ class TestAdapter implements ServerAdapter {
   }
 
   createRouter() {
-    return { router: true }
+    return { router: true, get: () => {} }
   }
 }
 

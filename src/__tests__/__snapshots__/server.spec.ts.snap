@@ -11,6 +11,7 @@ Array [
     "parentPath": "/testing",
     "path": "/",
     "router": Object {
+      "get": [Function],
       "router": true,
     },
     "verb": "get",
@@ -24,6 +25,7 @@ Array [
     "parentPath": "/testing",
     "path": "/foobar",
     "router": Object {
+      "get": [Function],
       "router": true,
     },
     "verb": "post",
@@ -37,6 +39,7 @@ Array [
     "parentPath": "/testing",
     "path": "/",
     "router": Object {
+      "get": [Function],
       "router": true,
     },
     "verb": "delete",
@@ -52,6 +55,7 @@ Array [
     "parentPath": "/testing",
     "path": "/with-middleware",
     "router": Object {
+      "get": [Function],
       "router": true,
     },
     "verb": "get",
@@ -70,6 +74,7 @@ Array [
     ],
     "path": "/testing",
     "router": Object {
+      "get": [Function],
       "router": true,
     },
   },
