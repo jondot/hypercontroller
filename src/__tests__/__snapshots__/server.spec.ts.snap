@@ -114,3 +114,10 @@ Array [
   },
 ]
 `;
+
+exports[`server should respond with mounted middleware 1`] = `
+Object {
+  "get": "bar",
+  "middleware": "world",
+}
+`;

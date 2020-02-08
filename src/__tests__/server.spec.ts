@@ -1,3 +1,5 @@
+import request from 'supertest'
+import express from 'express'
 import {
   Server,
   ServerAdapter,
@@ -7,14 +9,18 @@ import {
   GetWithRoute,
   Delete
 } from '../index'
+import ExpressAdapter from '../adapters/express'
 
-function someMiddleware(_req: any, _res: any, _next: any) {}
+function someMiddleware(req: any, _res: any, next: any) {
+  req.hello = 'world'
+  next()
+}
 
 @Controller(someMiddleware)
 class TestingController {
   @GetWithRoute('/')
   get(req: any, res: any) {
-    res.json({ user: req.user })
+    res.json({ middleware: req.hello, get: 'bar' })
   }
 
   @Post()
@@ -81,5 +87,13 @@ describe('server', () => {
       'mounted controllers'
     )
     expect(mountpoints).toMatchSnapshot('mountpoints')
+  })
+  it('should respond with mounted middleware', async () => {
+    const testAdapter = new ExpressAdapter(express)
+
+    const server = new Server(testAdapter)
+    server.mount([new TestingController()])
+    const res = await request(server.app).get('/testing')
+    expect(res.body).toMatchSnapshot()
   })
 })

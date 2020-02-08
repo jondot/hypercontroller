@@ -1,37 +1,37 @@
 import { makePath, leadingSlash } from './utils'
+import { setRouteProps, setControllerProps } from './meta-store'
 
 const makeController = (
   path: string | null,
-  middleware: Function | Function[]
-) => <T extends { new (...args: any[]): {} }>(constructor: T) =>
-  class extends constructor {
-    public path: string = leadingSlash(path || makePath(constructor.name))
-
-    public middleware: Function | Function[] = middleware
+  middleware?: Function | Function[]
+): ClassDecorator => {
+  // tslint:disable-next-line:ban-types
+  return <TFunction extends Function>(target: TFunction) => {
+    setControllerProps(target, {
+      path: leadingSlash(path || makePath(target.name)),
+      middleware
+    })
+    return target
   }
+}
 
 const make = (
   verb: string,
   path: string | null,
   middleware?: Function | Function[]
 ): MethodDecorator => (
-  _target: Object, // eslint-disable-line
+  target: Object, // eslint-disable-line
   propertyKey: string | symbol,
   descriptor: PropertyDescriptor
 ) => {
-  const meth = descriptor.value
-  // wrap because we dont want to attach our own props onto someone
-  // else's code.
-  // eslint-disable-next-line
-  descriptor.value = function(...args: any[]) {
-    return meth.apply(this, args)
-  }
-  // eslint-disable-next-line
-  descriptor.value.props = {
+  const meta = {
     verb,
     path: leadingSlash(path || makePath(propertyKey.toString())),
     middleware
   }
+
+  // @ts-ignore
+  setRouteProps(target[propertyKey.toString()], meta)
 
   return descriptor
 }
@@ -86,10 +86,6 @@ export {
   PutWithRoute as putWithRoute,
   DeleteWithRoute as deleteWithRoute
 }
-
-/*
- Class Decorators
- */
 
 export function Controller(middleware?: Function | Function[]) {
   return makeController(null, middleware || [])

@@ -1,10 +1,6 @@
 import { castArray, compact } from 'lodash'
+import { getRouteProps, getControllerProps } from './meta-store'
 import { ActionController, ServerAdapter } from './server'
-
-export interface Route {
-  (...args: any[]): any
-  props: any
-}
 
 export interface ActionMountpoint {
   path: string
@@ -44,9 +40,9 @@ export function printMountpoints(mps: ControllerMountpoint[]) {
     console.log(`${cmp.path}\t${printMiddleware(cmp.middleware)}`)
     cmp.actions.forEach(amp => {
       console.log(
-        `\t${amp.verb.toUpperCase()} ${cmp.path !== '/' ? cmp.path : ''}${amp.path}\t${printMiddleware(
-          amp.middleware
-        )}`
+        `\t${amp.verb.toUpperCase()} ${cmp.path !== '/' ? cmp.path : ''}${
+          amp.path
+        }\t${printMiddleware(amp.middleware)}`
       )
     })
     console.log('')
@@ -59,16 +55,15 @@ export const mountActions = (
   router: any,
   adapter: ServerAdapter
 ): ControllerMountpoint => {
+  const controllerProps = getControllerProps(controller)
   // mount all actions within a controller
   const actionMountpoints = compact(
     methods(controller).map(member => {
-      const route = controller[member] as Route
+      const route = controller[member]
 
       // remember we tucked props in each route with the decorator
-      if (route && route.props) {
-        const { middleware, verb, path } = route.props
-        const handler = (req: any, res: any, next: any) =>
-          (controller[member] as Route)(req, res, next)
+      if (route && getRouteProps(route)) {
+        const { middleware, verb, path } = getRouteProps(route)
         const middlewares = castArray(middleware || [])
 
         // supply the adapter with everything it needs. some adapters
@@ -78,10 +73,10 @@ export const mountActions = (
           app,
           router,
           verb,
-          controller.path,
+          controllerProps.path,
           path,
           middlewares,
-          handler
+          route
         )
 
         // return a descriptor for what we did. this is for printing a routing map
@@ -89,7 +84,7 @@ export const mountActions = (
         return {
           path,
           verb,
-          parent: controller.path,
+          parent: controllerProps.path,
           middleware: middlewares.map(m => m.name || 'unnamed-middleware')
         }
       }
@@ -98,12 +93,12 @@ export const mountActions = (
   )
 
   // finally mount the controller itself
-  const middlewares = castArray(controller.middleware || [])
-  adapter.mountController(app, router, controller.path, middlewares)
+  const middlewares = castArray(controllerProps.middleware || [])
+  adapter.mountController(app, router, controllerProps.path, middlewares)
 
   // return descriptor for what we did.
   return {
-    path: controller.path,
+    path: controllerProps.path,
     middleware: middlewares.map(m => m.name || 'unnamed-middleware'),
     actions: actionMountpoints
   }
@@ -115,7 +110,8 @@ export const mountControllers = (
 ): ControllerMountpoint[] =>
   compact(
     controllers.map(controller => {
-      if (controller && controller.path) {
+      const controllerProps = getControllerProps(controller)
+      if (controller && controllerProps.path) {
         const router = adapter.createRouter()
         return mountActions(app, controller, router, adapter)
       }
