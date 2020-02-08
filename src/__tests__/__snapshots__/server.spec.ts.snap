@@ -76,45 +76,6 @@ Array [
 ]
 `;
 
-exports[`server should mount controllers and actions: mountpoints 1`] = `
-Array [
-  Object {
-    "actions": Array [
-      Object {
-        "middleware": Array [],
-        "parent": "/testing",
-        "path": "/",
-        "verb": "get",
-      },
-      Object {
-        "middleware": Array [],
-        "parent": "/testing",
-        "path": "/foobar",
-        "verb": "post",
-      },
-      Object {
-        "middleware": Array [],
-        "parent": "/testing",
-        "path": "/",
-        "verb": "delete",
-      },
-      Object {
-        "middleware": Array [
-          "someMiddleware",
-        ],
-        "parent": "/testing",
-        "path": "/with-middleware",
-        "verb": "get",
-      },
-    ],
-    "middleware": Array [
-      "someMiddleware",
-    ],
-    "path": "/testing",
-  },
-]
-`;
-
 exports[`server should respond with mounted middleware 1`] = `
 Object {
   "get": "bar",

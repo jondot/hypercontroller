@@ -11,8 +11,6 @@ const fastify_1 = __importDefault(require("./adapters/fastify"));
 exports.FastifyAdapter = fastify_1.default;
 const express_1 = __importDefault(require("./adapters/express"));
 exports.ExpressAdapter = express_1.default;
-const mounting_1 = require("./mounting");
-exports.printMountpoints = mounting_1.printMountpoints;
 const permitParams = (root, paths) => hyperparams_1.extract(root, paths);
 exports.permitParams = permitParams;
 __export(require("./decorators"));

@@ -1,5 +1,5 @@
 import { castArray } from 'lodash'
-import { mountControllers, ControllerMountpoint } from './mounting'
+import { mountControllers } from './mounting'
 
 export interface ServerAdapter {
   createApp(opts: any): any
@@ -39,11 +39,11 @@ export class Server {
     this.app = adapter.createApp(opts)
   }
 
-  public mount(controllerOrControllers: any): ControllerMountpoint[] {
+  public mount(controllerOrControllers: any) {
     const controllers = castArray(controllerOrControllers as
       | ActionController
       | ActionController[])
-    return mountControllers(this.app, controllers, this.adapter)
+    mountControllers(this.app, controllers, this.adapter)
   }
 
   public start(

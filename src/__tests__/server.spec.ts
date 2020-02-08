@@ -31,6 +31,14 @@ class TestingController {
 
   @get(someMiddleware)
   withMiddleware(_req: any, _res: any) {}
+
+  custom(_req: any, res: any) {
+    res.json({ custom: true })
+  }
+
+  _routes(draw: any) {
+    draw('/').get('custom', this.custom)
+  }
 }
 
 class TestAdapter implements ServerAdapter {
@@ -81,12 +89,11 @@ describe('server', () => {
     const testAdapter = new TestAdapter()
 
     const server = new Server(testAdapter)
-    const mountpoints = server.mount([new TestingController()])
+    server.mount([new TestingController()])
     expect(testAdapter.mountedActions).toMatchSnapshot('mounted actions')
     expect(testAdapter.mountedControllers).toMatchSnapshot(
       'mounted controllers'
     )
-    expect(mountpoints).toMatchSnapshot('mountpoints')
   })
   it('should respond with mounted middleware', async () => {
     const testAdapter = new ExpressAdapter(express)

@@ -1,4 +1,3 @@
-import { ControllerMountpoint } from './mounting';
 export interface ServerAdapter {
     createApp(opts: any): any;
     mountAction(app: any, router: any, verb: string, parentPath: string, path: string, middleware: Function[], cb: Function): void;
@@ -15,6 +14,6 @@ export declare class Server {
     connection: any;
     readonly adapter: ServerAdapter;
     constructor(adapter: ServerAdapter, opts?: {});
-    mount(controllerOrControllers: any): ControllerMountpoint[];
+    mount(controllerOrControllers: any): void;
     start(createConnection?: Function, opts?: any): Promise<any>;
 }

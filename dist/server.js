@@ -17,7 +17,7 @@ class Server {
     }
     mount(controllerOrControllers) {
         const controllers = lodash_1.castArray(controllerOrControllers);
-        return mounting_1.mountControllers(this.app, controllers, this.adapter);
+        mounting_1.mountControllers(this.app, controllers, this.adapter);
     }
     start(createConnection = () => Promise.resolve(), opts = {}) {
         const resolvedOpts = Object.assign({ env: process.env.NODE_ENV, port: process.env.PORT || 3000 }, opts);
