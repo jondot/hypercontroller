@@ -42,15 +42,14 @@ Set up a `server.ts` file using a framework of your choice:
 
 ```ts
 import express from 'express'
-import { Server, printMountpoints, ExpressAdapter } from 'hypercontroller'
+import { Server, ExpressAdapter } from 'hypercontroller'
 import AccountController from './controllers/account'
 
 const server = new Server(new ExpressAdapter(express))
-const mountpoints = server.mount([
+server.mount([
   new AccountController()
 ])
 
-printMountpoints(mountpoints)
 
 const port = process.env.PORT || 5160
 const createServer = () =>
@@ -141,11 +140,9 @@ Hypercontroller's `Server` is an entrypoint that takes controllers and understan
 
 ```ts
 const server = new Server(new ExpressAdapter(express))
-const mountpoints = server.mount([
+server.mount([
   new AccountController()
 ])
-
-printMountpoints(mountpoints)
 ```
 
 You can use either `ExpressAdapter` or `FastifyAdapter`, and give each an instance of `express` or `fastify` to work with.
