@@ -15,5 +15,5 @@ export declare class Server {
     readonly adapter: ServerAdapter;
     constructor(adapter: ServerAdapter, opts?: {});
     mount(controllerOrControllers: any): void;
-    start(createConnection?: Function, opts?: any): Promise<any>;
+    start(boot?: Function, opts?: any): Promise<any>;
 }

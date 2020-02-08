@@ -14,6 +14,4 @@ server.mount([
   new AccountController()
 ])
 console.log('', expressList(server.app))
-server
-  .start()
-  .then(({ opts: { port } }) => console.log(`listening on ${port}!`))
+server.start().then(({ port }) => console.log(`listening on ${port}!`))

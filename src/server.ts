@@ -47,7 +47,7 @@ export class Server {
   }
 
   public start(
-    createConnection: Function = () => Promise.resolve(),
+    boot: Function = () => Promise.resolve(),
     opts: any = {}
   ): Promise<any> {
     const resolvedOpts = {
@@ -55,18 +55,16 @@ export class Server {
       ...opts
     }
     return new Promise((resolve, reject) => {
-      createConnection()
-        .then(async (connection: any) => {
-          this.connection = connection
+      boot()
+        .then(() => {
           if (resolvedOpts.env !== 'test') {
             this.app.listen(resolvedOpts.port, () => {
-              resolve({ opts: resolvedOpts })
+              resolve(resolvedOpts)
             })
           } else {
-            resolve({ opts: resolvedOpts })
+            resolve(resolvedOpts)
           }
         })
-
         .catch((err: any) => reject(err))
     })
   }
