@@ -8,16 +8,6 @@ export declare function PostWithRoute(path: string, middleware?: Function | Func
 export declare function PutWithRoute(path: string, middleware?: Function | Function[]): MethodDecorator;
 export declare function DeleteWithRoute(path: string, middleware?: Function | Function[]): MethodDecorator;
 export { GetWithRoute as getWithRoute, PostWithRoute as postWithRoute, PutWithRoute as putWithRoute, DeleteWithRoute as deleteWithRoute };
-export declare function Controller(middleware?: Function | Function[]): <T extends new (...args: any[]) => {}>(constructor: T) => {
-    new (...args: any[]): {
-        path: string;
-        middleware: Function | Function[];
-    };
-} & T;
-export declare function ControllerWithRoute(path: string, middleware?: Function | Function[]): <T extends new (...args: any[]) => {}>(constructor: T) => {
-    new (...args: any[]): {
-        path: string;
-        middleware: Function | Function[];
-    };
-} & T;
+export declare function Controller(middleware?: Function | Function[]): ClassDecorator;
+export declare function ControllerWithRoute(path: string, middleware?: Function | Function[]): ClassDecorator;
 export { Controller as controller, ControllerWithRoute as controllerWithRoute };

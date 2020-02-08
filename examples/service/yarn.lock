@@ -703,11 +703,6 @@ astral-regex@^1.0.0:
   resolved "https://registry.yarnpkg.com/astral-regex/-/astral-regex-1.0.0.tgz#6c8c3fb827dd43ee3918f27b82782ab7658a6fd9"
   integrity sha512-+Ryf6g3BKoRc7jfp7ad8tM4TtMiaWvbF/1/sQcZPkkS7ag3D5nMBCe2UfOTONtAkaG0tO0ij3C5Lwmf1EiyjHg==
 
-async-express-mw@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/async-express-mw/-/async-express-mw-0.1.0.tgz#2e6ff170cfc20145b8d4a1c2729a107c8f79656e"
-  integrity sha512-7T3BjKBkRABXZTUBRU6LqAGc5qtJMnOZd+1PR+kkTxbzTY/z5dw60wxQ3DjBEWltRxyapeHuynvBlkX+x2RZnw==
-
 async-limiter@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/async-limiter/-/async-limiter-1.0.0.tgz#78faed8c3d074ab81f22b4e985d79e8738f720f8"
@@ -2206,22 +2201,6 @@ http-signature@~1.2.0:
     jsprim "^1.2.2"
     sshpk "^1.7.0"
 
-hypercontroller@^1.0.17:
-  version "1.0.17"
-  resolved "https://registry.yarnpkg.com/hypercontroller/-/hypercontroller-1.0.17.tgz#e98ea9a81229210bfa782cab09b26245a6c1f659"
-  integrity sha512-Dezc9kmkya8gCSoEVC8Uy2seB4xU0x+XspK9L1hHBq6A0uKwQXvIHffs3CelX8GymuLqf1HgFJJMtZFq4FfhQQ==
-  dependencies:
-    async-express-mw "^0.1.0"
-    hyperparams "^1.0.3"
-    lodash "^4.17.11"
-
-hyperparams@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/hyperparams/-/hyperparams-1.0.3.tgz#d8da58c1948c57847053126cb39adec8639f05df"
-  integrity sha1-2NpYwZSMV4RwUxJss5reyGOfBd8=
-  dependencies:
-    lodash "^4.17.4"
-
 iconv-lite@0.4.19:
   version "0.4.19"
   resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.19.tgz#f7468f60135f5e5dad3399c0a81be9a1603a082b"
@@ -3156,7 +3135,7 @@ lodash.unescape@4.0.1:
   resolved "https://registry.yarnpkg.com/lodash.unescape/-/lodash.unescape-4.0.1.tgz#bf2249886ce514cda112fae9218cdc065211fc9c"
   integrity sha1-vyJJiGzlFM2hEvrpIYzcBlIR/Jw=
 
-lodash@^4.13.1, lodash@^4.17.4:
+lodash@^4.13.1:
   version "4.17.5"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.5.tgz#99a92d65c0272debe8c96b6057bc8fbfa3bed511"
   integrity sha512-svL3uiZf1RwhH+cWrfZn3A4+U58wbP0tGVTLQPbjplZxZ8ROD9VLuNgsRniTlLe7OlSqR79RUehXgpBW/s0IQw==

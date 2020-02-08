@@ -1,6 +1,6 @@
 import express from 'express'
 import bodyParser from 'body-parser'
-import { Server, printMountpoints, ExpressAdapter } from '../../../src'
+import { Server, printMountpoints, ExpressAdapter } from '../../../dist'
 import HomeController from './controllers/home'
 import AccountController from './controllers/account'
 import RestController from './controllers/rest'

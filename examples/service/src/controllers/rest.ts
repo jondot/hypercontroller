@@ -5,7 +5,7 @@ import {
   postWithRoute,
   putWithRoute,
   deleteWithRoute
-} from '../../../../src'
+} from '../../../../dist'
 
 @Controller()
 class RestController {

@@ -1,28 +1,26 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const utils_1 = require("./utils");
-const makeController = (path, middleware) => (constructor) => class extends constructor {
-    constructor() {
-        super(...arguments);
-        this.path = utils_1.leadingSlash(path || utils_1.makePath(constructor.name));
-        this.middleware = middleware;
-    }
-};
-const make = (verb, path, middleware) => (_target, // eslint-disable-line
-propertyKey, descriptor) => {
-    const meth = descriptor.value;
-    // wrap because we dont want to attach our own props onto someone
-    // else's code.
-    // eslint-disable-next-line
-    descriptor.value = function (...args) {
-        return meth.apply(this, args);
+const meta_store_1 = require("./meta-store");
+const makeController = (path, middleware) => {
+    // tslint:disable-next-line:ban-types
+    return (target) => {
+        meta_store_1.setControllerProps(target, {
+            path: utils_1.leadingSlash(path || utils_1.makePath(target.name)),
+            middleware
+        });
+        return target;
     };
-    // eslint-disable-next-line
-    descriptor.value.props = {
+};
+const make = (verb, path, middleware) => (target, // eslint-disable-line
+propertyKey, descriptor) => {
+    const meta = {
         verb,
         path: utils_1.leadingSlash(path || utils_1.makePath(propertyKey.toString())),
         middleware
     };
+    // @ts-ignore
+    meta_store_1.setRouteProps(target[propertyKey.toString()], meta);
     return descriptor;
 };
 function Get(middleware) {
@@ -65,9 +63,6 @@ function DeleteWithRoute(path, middleware) {
 }
 exports.DeleteWithRoute = DeleteWithRoute;
 exports.deleteWithRoute = DeleteWithRoute;
-/*
- Class Decorators
- */
 function Controller(middleware) {
     return makeController(null, middleware || []);
 }

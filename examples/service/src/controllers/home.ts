@@ -1,4 +1,4 @@
-import { Controller, get, GetWithRoute } from '../../../../src'
+import { Controller, get, GetWithRoute } from '../../../../dist'
 
 @Controller()
 class IndexController {

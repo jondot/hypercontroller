@@ -1,8 +1,4 @@
 import { ActionController, ServerAdapter } from './server';
-export interface Route {
-    (...args: any[]): any;
-    props: any;
-}
 export interface ActionMountpoint {
     path: string;
     verb: string;

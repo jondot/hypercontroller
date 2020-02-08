@@ -1,4 +1,4 @@
-import { Controller, get, postWithRoute } from '../../../../src'
+import { Controller, get, postWithRoute } from '../../../../dist'
 
 const database = () =>
   new Promise((resolve, _reject) => {
