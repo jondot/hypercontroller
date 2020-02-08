@@ -42,6 +42,11 @@ exports.mountControllers = (app, controllers, adapter) => controllers.forEach(co
     if (controller && controllerProps.path) {
         const router = adapter.createRouter();
         exports.mountActions(app, controller, router, adapter);
+        // eslint-disable-next-line
+        if (controller._routes) {
+            // eslint-disable-next-line
+            controller._routes({ router });
+        }
     }
 });
 //# sourceMappingURL=mounting.js.map

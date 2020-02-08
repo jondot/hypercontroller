@@ -1,3 +1,4 @@
+import wrap from 'async-express-mw'
 import { Controller, get, postWithRoute } from '../../../../dist'
 
 const database = () =>
@@ -18,6 +19,14 @@ class AccountController {
     // const params = accountParams(req.body)
     const record = await database()
     res.json(record)
+  }
+
+  magic(_req, res) {
+    res.send({ magic: 'foobar' })
+  }
+
+  _routes({ router }) {
+    router.get('/magic', wrap(this.magic))
   }
 }
 export default AccountController

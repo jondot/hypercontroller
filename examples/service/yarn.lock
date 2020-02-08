@@ -703,6 +703,11 @@ astral-regex@^1.0.0:
   resolved "https://registry.yarnpkg.com/astral-regex/-/astral-regex-1.0.0.tgz#6c8c3fb827dd43ee3918f27b82782ab7658a6fd9"
   integrity sha512-+Ryf6g3BKoRc7jfp7ad8tM4TtMiaWvbF/1/sQcZPkkS7ag3D5nMBCe2UfOTONtAkaG0tO0ij3C5Lwmf1EiyjHg==
 
+async-express-mw@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/async-express-mw/-/async-express-mw-0.1.0.tgz#2e6ff170cfc20145b8d4a1c2729a107c8f79656e"
+  integrity sha512-7T3BjKBkRABXZTUBRU6LqAGc5qtJMnOZd+1PR+kkTxbzTY/z5dw60wxQ3DjBEWltRxyapeHuynvBlkX+x2RZnw==
+
 async-limiter@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/async-limiter/-/async-limiter-1.0.0.tgz#78faed8c3d074ab81f22b4e985d79e8738f720f8"

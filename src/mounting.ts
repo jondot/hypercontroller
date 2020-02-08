@@ -65,5 +65,10 @@ export const mountControllers = (
     if (controller && controllerProps.path) {
       const router = adapter.createRouter()
       mountActions(app, controller, router, adapter)
+      // eslint-disable-next-line
+      if (controller._routes) {
+        // eslint-disable-next-line
+        controller._routes({ router })
+      }
     }
   })
