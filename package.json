@@ -13,7 +13,7 @@
   "dependencies": {
     "async-express-mw": "^0.1.0",
     "hyperparams": "^1.0.3",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "reflect-metadata": "^0.1.13"
   },
   "devDependencies": {
